@@ -6,7 +6,7 @@ import Cart from './pages/cart';
 
 function App() {
   return (
-    <div>
+    <div className='bg-background'>
       <NavBar/>
       <hr />
       <Routes>

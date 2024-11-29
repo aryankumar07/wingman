@@ -6,13 +6,14 @@ import SearchBar from "../searchbar/searchbar";
 import { useState } from "react";
 import Sidebar from "../sidebar/sidebar";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import ThemeButton from "../themebutton";
 
 const NavBar = () => {
 
   const [openSidebar, setopenSidebar] = useState<boolean>(false)
 
   return (
-    <div className="flex items-center gap-2 justify-between font-medium">
+    <div className="flex items-center gap-2 justify-between text-foreground font-medium">
       <NavLink to={"/"}>
         <LogoIcon asset={assets.logo} />
       </NavLink>
@@ -21,7 +22,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to="/"
-              className="hover:border-b-2 hover:border-black transition duration-300"
+              className="hover:border-b-2 hover:border-foreground text-foreground transition duration-300"
             >
               Home
             </NavLink>
@@ -29,7 +30,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to="/cart"
-              className="hover:border-b-2 hover:border-black transition duration-300"
+              className="hover:border-b-2 hover:border-foreground text-foreground transition duration-300"
             >
               Cart
             </NavLink>
@@ -48,16 +49,21 @@ const NavBar = () => {
           <RxHamburgerMenu onClick={() => setopenSidebar((prev) => !prev)} />
         )}
       </div>
-      <div className="hidden sm:block mr-6">
-        <SignedOut>
-          <div className="border border-black rounded-md p-1">
-            <SignInButton />
+        <div className="hidden items-center justify-center gap-2 sm:flex">
+          <div>
+            <ThemeButton />
           </div>
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-      </div>
+          <div>
+            <SignedOut>
+              <div className="border border-foreground rounded-md p-1">
+                <SignInButton />
+              </div>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
+        </div>
     </div>
   );
 };
