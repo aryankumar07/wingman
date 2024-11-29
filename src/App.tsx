@@ -8,6 +8,7 @@ function App() {
   return (
     <div>
       <NavBar/>
+      <hr />
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
