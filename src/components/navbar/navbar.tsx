@@ -4,7 +4,7 @@ import { assets } from "../../assets/assets";
 import { NavLink } from "react-router-dom";
 import SearchBar from "../searchbar/searchbar";
 import { useState } from "react";
-// import Sidebar from "../sidebar/sidebar";
+import Sidebar from "../sidebar/sidebar";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import ThemeButton from "../themebutton";
 
@@ -42,10 +42,9 @@ const NavBar = () => {
       </div>
       <div className="sm:hidden flex flex-col items-center gap-2 my-4 mr-6">
         {openSidebar ? (
-          // <div className="flex flex-col">
-          //   <Sidebar onClose={() => setopenSidebar((prev) => !prev)} />
-          // </div>
-          <div></div>
+          <div className="flex flex-col">
+            <Sidebar onClose={() => setopenSidebar((prev) => !prev)} />
+          </div>
         ) : (
           <RxHamburgerMenu onClick={() => setopenSidebar((prev) => !prev)} />
         )}
